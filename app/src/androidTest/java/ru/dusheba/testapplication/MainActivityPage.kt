@@ -4,19 +4,18 @@ import android.content.pm.ActivityInfo
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.*
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import org.hamcrest.Matchers.not
 
-
 object MainActivityPage : Page<MainActivityPage>() {
-    private val inputTextField = R.id.inputTextField
-    private val editTextButton = R.id.editTextButton
-    private val editedTextView = R.id.editedTextView
-    private val emptyInputFieldError = R.string.empty_field_error
+    private const val inputTextField = R.id.inputTextField
+    private const val editTextButton = R.id.editTextButton
+    private const val editedTextView = R.id.editedTextView
+    private const val scrollView = R.id.scrollView
+    private const val emptyInputFieldError = R.string.empty_field_error
 
     /**
      * Вставляет текст в поле и нажимает кнопку
@@ -38,7 +37,7 @@ object MainActivityPage : Page<MainActivityPage>() {
      * Проверяет отображение кнопки
      */
     fun checkButton(){
-        onView(withId(R.id.editTextButton)).check(matches(isDisplayed()))
+        onView(withId(editTextButton)).check(matches(isDisplayed()))
     }
 
     /**
@@ -52,7 +51,7 @@ object MainActivityPage : Page<MainActivityPage>() {
      * Проверяет, что в поле ввода отображается ошибка
      */
     fun checkInputFieldError(){
-        onView(withId(R.id.inputTextField)).check(matches(withHint(emptyInputFieldError)))
+        onView(withId(inputTextField)).check(matches(withHint(emptyInputFieldError)))
     }
 
     /**
@@ -66,7 +65,7 @@ object MainActivityPage : Page<MainActivityPage>() {
      * Проверяет, очистилось ли текстовое поле после ввода текста и нажатия кнопки
      */
     fun checkFieldTextIsEmpty(){
-        onView(withId(R.id.inputTextField)).check(matches(withText("")))
+        onView(withId(inputTextField)).check(matches(withText("")))
     }
 
     /**
@@ -85,6 +84,6 @@ object MainActivityPage : Page<MainActivityPage>() {
      * Проверка скролла длинного текста
      */
     fun scrollView(){
-        onView(ViewMatchers.withId(R.id.scrollView)).perform(ViewActions.swipeUp())
+        onView(ViewMatchers.withId(scrollView)).perform(ViewActions.swipeUp())
     }
 }
