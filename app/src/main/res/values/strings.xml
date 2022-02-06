@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">TestApplication</string>
+    <string name="app_name">Тестовое приложение</string>
     <string name="input_field_text">Введите текст</string>
     <string name="button_name">Изменить текст</string>
     <string name="text_name">Ваш текст</string>
-    <string name="empty_field_toast_text">Текст не введен</string>
+    <string name="empty_field_error">Текст не введен</string>
 </resources>

@@ -1,8 +1,7 @@
 package ru.dusheba.testapplication
 
-import android.content.res.Resources
+import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -32,20 +31,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initElements(){
+        val emptyFieldError = getString(R.string.empty_field_error)
         inputTextField = findViewById(R.id.inputTextField)
         editTextButton = findViewById(R.id.editTextButton)
         editedTextView = findViewById(R.id.editedTextView)
 
         editTextButton.setOnClickListener {
             val inputTextStr = inputTextField.text.toString().trim()
-            val emptyFieldToast = Toast.makeText(
-                    this,
-                    getString(R.string.empty_field_toast_text),
-                    Toast.LENGTH_SHORT
-            )
 
             if(inputTextStr.isEmpty()){
-                emptyFieldToast.show()
+                inputTextField.hint = emptyFieldError
+                inputTextField.setHintTextColor(Color.RED)
                 return@setOnClickListener
             }
 
