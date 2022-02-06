@@ -22,8 +22,8 @@ import ru.dusheba.testapplication.MainActivityPage.scrollView
 class MainActivityTest {
     companion object{
         private val source = ('A'..'Z') +('a'..'z') + ('0'..'9')
-        val longString = (1..500).map { source.random() }.joinToString("")
-        val mediumString = (1..50).map { source.random() }.joinToString("")
+        val longString = (1..700).map { source.random() }.joinToString("")
+        val mediumString = (1..70).map { source.random() }.joinToString("")
         const val emptyString = ""
         const val specialSymbolString = "☕☺π☕√©☺™☕✓¶☺∆☕☺☕"
     }
@@ -33,7 +33,7 @@ class MainActivityTest {
         ActivityScenarioRule(MainActivity::class.java)
 
     /**
-     * Тест с короткой строкой (50 символов)
+     * Тест с короткой строкой (70 символов)
      */
     @Test
     fun mediumStringTest(){
@@ -42,8 +42,7 @@ class MainActivityTest {
     }
 
     /**
-     * Тест со вставкой длинной строки (500 символов)
-     * Проверка отображения кнопки
+     * Тест со вставкой длинной строки (700 символов) и проверка отображения кнопки
      */
     @Test
     fun longStringTest(){
@@ -53,8 +52,8 @@ class MainActivityTest {
     }
 
     /**
-     * Тест с пустой строкой
-     * Проверка, что лейбл не пустой и в поле ввода отображается ошибка
+     * Тест со вставкой пустой строки и проверки, что
+     * лейбл не пустой и в поле ввода отображается ошибка
      */
     @Test
     fun emptyStringTest(){
